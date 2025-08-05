@@ -1,0 +1,85 @@
+@use "./reset.scss";
+@use "./font.scss";
+
+$font-text: "MotoGp Text", system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+  sans-serif;
+$font-display: "MotoGp Display", system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+  sans-serif;
+
+body {
+  font-family: $font-text;
+  color: black;
+  font-size: 5rem;
+  overflow-x: hidden;
+}
+
+.hero {
+  height: 200vh;
+  position: relative;
+
+  &-banner {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+
+    &-img {
+      background-image: url("../assets/img/motogp-grid.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      transform: scale(1.3);
+    }
+  }
+
+  &-title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+
+    &-mask {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      width: 100%;
+      height: 100%;
+      mask-image: url("../assets/img/logo-mask.svg");
+      mask-repeat: no-repeat;
+      mask-size: 100%;
+      mask-position: top;
+
+      // Webkit support
+      -webkit-mask-image: url("../assets/img/logo-mask.svg");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 100%;
+      -webkit-mask-position: top;
+      mask-mode: luminance;
+      transform-origin: 51% 15%;
+      transform: scale(55);
+      overflow: hidden;
+    }
+
+    &-bg {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../assets/img/logo-white-bg.svg");
+      background-repeat: no-repeat;
+      background-position: top;
+      background-size: 100%;
+      transform-origin: 51% 15%;
+      transform: scale(55);
+      opacity: 0;
+    }
+  }
+}
