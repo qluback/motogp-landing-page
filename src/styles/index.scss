@@ -11,12 +11,11 @@ $font-display: "MotoGp Display", system-ui, -apple-system, BlinkMacSystemFont,
 body {
   font-family: $font-text;
   color: black;
-  font-size: 5rem;
   overflow-x: hidden;
 }
 
 .hero {
-  height: 200vh;
+  height: 400vh;
   position: relative;
 
   &-banner {
@@ -33,7 +32,7 @@ body {
       background-size: cover;
       background-position: center;
       height: 100%;
-      transform: scale(1.3);
+      transform: scale(1.2);
     }
   }
 
@@ -43,6 +42,18 @@ body {
     width: 100%;
     height: 100vh;
     z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     &-mask {
       position: absolute;
@@ -63,7 +74,7 @@ body {
       -webkit-mask-size: 100%;
       -webkit-mask-position: top;
       mask-mode: luminance;
-      transform-origin: 51% 15%;
+      transform-origin: 51% 25%;
       transform: scale(55);
       overflow: hidden;
     }
@@ -77,9 +88,57 @@ body {
       background-repeat: no-repeat;
       background-position: top;
       background-size: 100%;
-      transform-origin: 51% 15%;
+      transform-origin: 51% 25%;
       transform: scale(55);
       opacity: 0;
+    }
+
+    &-text {
+      --progress: 0%;
+      color: white;
+      text-align: center;
+      font-weight: 700;
+      font-size: 8rem;
+      z-index: 3;
+      text-transform: uppercase;
+      // background-image: linear-gradient(180deg, #c80502, #000 var(--progress));
+      background-image: radial-gradient(
+        circle,
+        rgba(200, 5, 2, 1) var(--progress),
+        rgba(98, 2, 1, 1) 100%
+      );
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      margin-top: 16rem;
+    }
+
+    &-bgFadeOut {
+      background-color: black;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+      width: 100%;
+      height: 200vh;
+      z-index: 3;
+      position: absolute;
+      top: 100vh;
+    }
+  }
+}
+
+.calendar {
+  height: 300vh;
+
+  &-background {
+    height: 100vh;
+    overflow: hidden;
+
+    &-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
   }
 }
