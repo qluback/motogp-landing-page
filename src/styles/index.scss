@@ -7,11 +7,26 @@ $font-text: "MotoGp Text", system-ui, -apple-system, BlinkMacSystemFont,
 $font-display: "MotoGp Display", system-ui, -apple-system, BlinkMacSystemFont,
   "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
   sans-serif;
+$text-base: 2rem;
+$text-lg: 4rem;
+$text-xl: 5rem;
 
 body {
   font-family: $font-text;
+  font-weight: 700;
+  font-size: $text-base;
   color: black;
   overflow-x: hidden;
+}
+
+h1 {
+  font-size: $text-xl;
+  font-family: $font-display;
+  font-weight: bold;
+}
+
+p {
+  line-height: 1.2;
 }
 
 .hero {
@@ -58,11 +73,9 @@ body {
     &-mask {
       position: absolute;
       top: 0;
-      width: 100%;
+      width: 1920px;
       height: 100%;
       background: black;
-      width: 100%;
-      height: 100%;
       mask-image: url("../assets/img/logo-mask.svg");
       mask-repeat: no-repeat;
       mask-size: 100%;
@@ -74,7 +87,7 @@ body {
       -webkit-mask-size: 100%;
       -webkit-mask-position: top;
       mask-mode: luminance;
-      transform-origin: 51% 25%;
+          transform-origin: 51% 20%;
       transform: scale(55);
       overflow: hidden;
     }
@@ -82,13 +95,13 @@ body {
     &-bg {
       position: absolute;
       top: 0;
-      width: 100%;
+      width: 1920px;
       height: 100%;
       background-image: url("../assets/img/logo-white-bg.svg");
       background-repeat: no-repeat;
       background-position: top;
       background-size: 100%;
-      transform-origin: 51% 25%;
+          transform-origin: 51% 20%;
       transform: scale(55);
       opacity: 0;
     }
@@ -126,11 +139,13 @@ body {
   }
 }
 
-.calendar {
-  height: 300vh;
+.intro {
+  height: 600vh;
 
   &-background {
+    position: absolute;
     height: 100vh;
+    width: 100%;
     overflow: hidden;
 
     &-video {
@@ -139,6 +154,102 @@ body {
       object-fit: cover;
       object-position: center;
       display: block;
+    }
+
+    &-blur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      backdrop-filter: blur(10px);
+      /* Optional: add a tint or fade */
+      // background: rgba(0, 0, 0, 1);
+      background: black;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    &-fadeLeft {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        270deg,
+        rgba(18, 18, 18, 0) 0%,
+        rgba(0, 0, 0, 1) 50%
+      );
+            background-repeat: no-repeat;
+    background-size: 0% 100%; // ← Starts with 0% width (invisible)
+    background-position: left top;
+      opacity: 1;
+      pointer-events: none;
+    }
+  }
+
+  &-content {
+    position: relative;
+    top: 150vh;
+    //   background-color: linear-gradient(
+    //     270deg,
+    //     rgba(18, 18, 18, 0) 0%,
+    //     rgba(0, 0, 0, 1) 50%
+    //   );
+    //   background-repeat: no-repeat;
+    // background-size: 0% 100%; // ← Starts with 0% width (invisible)
+    // background-position: left top;
+    color: white;
+    // opacity: 0.5;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    padding: 10rem 0;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      border: 0 solid transparent;
+      transition: border-width .6s ease, border-color .3s ease .3s;
+
+      &:hover {
+        border-width: 0.5vw;
+        border-color: white;
+        transition: border-width .6s ease, border-color .3s ease;
+      }
+    }
+
+    &-left {
+      grid-column: 3 / span 4;
+
+      &-subtitle {
+        font-size: $text-lg;
+        margin: 6rem 0 3rem;
+        line-height: 1;
+      }
+
+      img {
+        margin-top: 10rem;
+      }
+    }
+
+    &-right {
+      grid-column: 7 / -1;
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-template-rows: min-content;
+      row-gap: 30px;
+      padding-top: 30rem;
+
+      img:nth-child(1) {
+        grid-column: 1 / -1;
+        aspect-ratio: 8 / 7;
+      }
+      img:nth-child(2) {
+        grid-column: 1 / span 4;
+        grid-row: 2;
+      }
     }
   }
 }

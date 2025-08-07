@@ -5,6 +5,22 @@
 }
 @font-face {
   font-family: "MotoGp Text";
+  src: url("../assets/fonts/Text/MGPText-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "MotoGp Text";
   src: url("../assets/fonts/Text/MGPText-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "MotoGp Display";
+  src: url("../assets/fonts/Display/MGPDisplay-Regular.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "MotoGp Display";
+  src: url("../assets/fonts/Display/MGPDisplay-Bold.otf");
   font-weight: 700;
 }

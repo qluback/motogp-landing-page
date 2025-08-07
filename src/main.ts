@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     start: "top top",
     end: "bottom bottom",
     scrub: true, // optional: scrub helps keep things in sync
+    markers:true
     // onUpdate: (self) => {
     //   console.log(self.progress);
     // }
@@ -140,42 +141,64 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const video = document.querySelector(
-    ".calendar-background-video"
+    ".intro-background-video"
   ) as HTMLVideoElement;
 
   if (video) {
     // Check if metadata is already loaded
     ScrollTrigger.create({
-      trigger: ".calendar",
-      pin: ".calendar-background",
+      trigger: ".intro",
+      pin: ".intro-background",
       start: "top top",
+      endTrigger: "section.intro",
       end: "bottom bottom",
       scrub: 0.1,
-      markers: true,
       onUpdate: (self) => {
-        video.currentTime = 97+self.progress * 5;
-    }
-  });
+        const progress = self.progress;
+
+        video.currentTime = progress * 20;
+      },
+    });
   }
-  // if (video) {
-  //   video.pause(); // ✅ No TypeScript error now
 
-  //   video.addEventListener("loadedmetadata", () => {
-  //     console.log("Metadata loaded");
-  //     const duration = video.duration;
+  gsap.to(".intro-background-blur", {
+    scrollTrigger: {
+      trigger: ".intro",
+      // start: () => `${window.innerHeight * 2}px top`,
+      // end: () => `${window.innerHeight * 3}px`,
+      start: "top top",
+      endTrigger: ".intro",
+      end: "top+=500px top",
+      scrub: true,
+    },
+    opacity: 0,
+    backdropFilter: "blur(0px)",
+    webkitBackdropFilter: "blur(0px)",
+  });
 
-  //     ScrollTrigger.create({
-  //       trigger: ".calendar",
-  //       pin: ".calendar-background",
-  //       start: "top top",
-  //       end: "bottom bottom",
-  //       scrub: true,
-  //       markers: true,
-  //       onUpdate: (self) => {
-  //         console.log(self.progress);
-  //         video.currentTime = self.progress * duration;
-  //       },
-  //     });
-  //   });
-  // }
+  gsap.to(".intro-background-fadeLeft", {
+    scrollTrigger: {
+      trigger: ".intro-content",
+      start: "top bottom", // start when .intro-content hits bottom of viewport
+      endTrigger: ".intro-content",
+      end: "top top", // end when it reaches top of viewport
+      scrub: true,
+      // markers: true,
+    },
+    backgroundSize: "200% 100%", // animate width from 0% → 100%
+    ease: "power2.in",
+  });
+
+  gsap.to(".intro-content-right", {
+    scrollTrigger: {
+      trigger: ".intro-content-right",
+      // start: () => `${window.innerHeight * 2}px top`,
+      // end: () => `${window.innerHeight * 3}px`,
+      start: "top bottom",
+      endTrigger: ".intro-content-right",
+      end: "bottom top",
+      scrub: true,
+    },
+    paddingTop: "5rem",
+  });
 });
