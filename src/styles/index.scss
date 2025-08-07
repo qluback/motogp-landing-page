@@ -87,7 +87,7 @@ p {
       -webkit-mask-size: 100%;
       -webkit-mask-position: top;
       mask-mode: luminance;
-          transform-origin: 51% 20%;
+      transform-origin: 51% 20%;
       transform: scale(55);
       overflow: hidden;
     }
@@ -101,7 +101,7 @@ p {
       background-repeat: no-repeat;
       background-position: top;
       background-size: 100%;
-          transform-origin: 51% 20%;
+      transform-origin: 51% 20%;
       transform: scale(55);
       opacity: 0;
     }
@@ -140,7 +140,7 @@ p {
 }
 
 .intro {
-  height: 600vh;
+  height: 400vh;
 
   &-background {
     position: absolute;
@@ -181,9 +181,9 @@ p {
         rgba(18, 18, 18, 0) 0%,
         rgba(0, 0, 0, 1) 50%
       );
-            background-repeat: no-repeat;
-    background-size: 0% 100%; // ← Starts with 0% width (invisible)
-    background-position: left top;
+      background-repeat: no-repeat;
+      background-size: 0% 100%; // ← Starts with 0% width (invisible)
+      background-position: left top;
       opacity: 1;
       pointer-events: none;
     }
@@ -211,12 +211,12 @@ p {
       width: 100%;
       object-fit: cover;
       border: 0 solid transparent;
-      transition: border-width .6s ease, border-color .3s ease .3s;
+      transition: border-width 0.6s ease, border-color 0.3s ease 0.3s;
 
       &:hover {
         border-width: 0.5vw;
         border-color: white;
-        transition: border-width .6s ease, border-color .3s ease;
+        transition: border-width 0.6s ease, border-color 0.3s ease;
       }
     }
 
@@ -250,6 +250,29 @@ p {
         grid-column: 1 / span 4;
         grid-row: 2;
       }
+    }
+  }
+}
+
+.quote {
+  height: 400vh;
+  position: relative;
+
+  &-banner {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+
+    &-img {
+      background-image: url("../assets/img/jorge-martin.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      transform: scale(1);
     }
   }
 }
