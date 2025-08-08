@@ -310,15 +310,23 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       "-=0.4"
     );
+    rowTimeline.to(
+      row,
+      {
+        display: "none"
+        // z: 0,
+      },
+      "-=0.4"
+    );
   });
 
-  gsap.to(".drivers-list", {
-    scrollTrigger: {
-      trigger: ".drivers",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true,
-    },
-    backgroundSize: "100%",
-  });
+  // gsap.to(".drivers-list", {
+  //   scrollTrigger: {
+  //     trigger: ".drivers",
+  //     start: "top top",
+  //     end: "bottom bottom",
+  //     scrub: true,
+  //   },
+  //   backgroundSize: "100%",
+  // });
 });
