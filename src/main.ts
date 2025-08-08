@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     start: "top top",
     end: "bottom bottom",
     scrub: true, // optional: scrub helps keep things in sync
-    markers:true
+    markers: true,
     // onUpdate: (self) => {
     //   console.log(self.progress);
     // }
@@ -183,7 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
       endTrigger: ".intro-content",
       end: "top top", // end when it reaches top of viewport
       scrub: true,
-      // markers: true,
     },
     backgroundSize: "200% 100%", // animate width from 0% → 100%
     ease: "power2.in",
@@ -200,5 +199,63 @@ document.addEventListener("DOMContentLoaded", function () {
       scrub: true,
     },
     paddingTop: "5rem",
+  });
+
+  const quoteSection = document.querySelector(".quote") as HTMLElement;
+
+  gsap.to(quoteSection, {
+    scrollTrigger: {
+      trigger: ".quote",
+      start: () => `top top`, // 20% of viewport scrolled
+      end: () => `${window.innerHeight * 2}px`,
+      scrub: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        quoteSection.style.setProperty("--progress", String(progress * 10));
+
+        if (progress < 0.25) {
+        const fadeIn = progress / 0.25; // 0 → 1
+        // quoteSection.style.opacity = String(fadeIn);
+        quoteSection.style.setProperty("--progress", String(fadeIn));
+      }
+      // Full opacity (0.25 → 0.75)
+      else if (progress < 0.75) {
+        // quoteSection.style.opacity = "1";
+        quoteSection.style.setProperty("--progress", "1");
+      }
+      // Fade out (0.75 → 1)
+      else {
+        const fadeOut = (1 - progress) / 0.25; // 1 → 0
+        // quoteSection.style.opacity = String(fadeOut);
+        quoteSection.style.setProperty("--progress", String(fadeOut));
+      }
+        // quoteSection.style.opacity = String(progress * 10);
+      },
+    },
+    // opacity: 1,
+    // onComplete: () => {
+    //   document.querySelector(".hero-title")?.style.setProperty("background-color", "black");
+    // }
+  });
+
+  gsap.to(".quote-banner-img", {
+    scrollTrigger: {
+      trigger: ".quote",
+      start: "top top",
+      end: () => `${window.innerHeight * 4}px`,
+      scrub: true,
+    },
+    scale: 1,
+  });
+
+  gsap.to(".quote-banner-text", {
+    scrollTrigger: {
+      trigger: ".quote",
+      start: () => `top+=${window.innerHeight * 0.5}px top`,
+      end: () => `${window.innerHeight}px`,
+      scrub: true,
+    },
+    transform: "translateY(-2rem)",
+    opacity: 1,
   });
 });

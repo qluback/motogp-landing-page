@@ -15,6 +15,7 @@ body {
   font-family: $font-text;
   font-weight: 700;
   font-size: $text-base;
+  background-color: black;
   color: black;
   overflow-x: hidden;
 }
@@ -255,8 +256,10 @@ p {
 }
 
 .quote {
-  height: 400vh;
+  --progress: 0;
+  height: 300vh;
   position: relative;
+  opacity: var(--progress);
 
   &-banner {
     position: sticky;
@@ -272,7 +275,28 @@ p {
       background-size: cover;
       background-position: center;
       height: 100%;
-      transform: scale(1);
+      transform: scale(1.1);
+    }
+    &-text {
+      position: sticky;
+      z-index: 1;
+      bottom: 5.5rem;
+      left: 50%;
+      width: 25ch;
+      color: white;
+      font-size: 4rem;
+      text-transform: uppercase;
+      opacity: 0;
     }
   }
+
+  &-content {
+    height: 300vh;
+    position: relative;
+  }
+}
+
+.drivers {
+  height: 400vh;
+  background-color: red;
 }
