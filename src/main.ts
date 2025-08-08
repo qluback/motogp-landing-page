@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
       onUpdate: (self) => {
         const progress = self.progress;
 
-        video.currentTime = progress * 20;
+        video.currentTime = progress * 15;
       },
     });
   }
@@ -214,21 +214,21 @@ document.addEventListener("DOMContentLoaded", function () {
         quoteSection.style.setProperty("--progress", String(progress * 10));
 
         if (progress < 0.25) {
-        const fadeIn = progress / 0.25; // 0 → 1
-        // quoteSection.style.opacity = String(fadeIn);
-        quoteSection.style.setProperty("--progress", String(fadeIn));
-      }
-      // Full opacity (0.25 → 0.75)
-      else if (progress < 0.75) {
-        // quoteSection.style.opacity = "1";
-        quoteSection.style.setProperty("--progress", "1");
-      }
-      // Fade out (0.75 → 1)
-      else {
-        const fadeOut = (1 - progress) / 0.25; // 1 → 0
-        // quoteSection.style.opacity = String(fadeOut);
-        quoteSection.style.setProperty("--progress", String(fadeOut));
-      }
+          const fadeIn = progress / 0.25; // 0 → 1
+          // quoteSection.style.opacity = String(fadeIn);
+          quoteSection.style.setProperty("--progress", String(fadeIn));
+        }
+        // Full opacity (0.25 → 0.75)
+        else if (progress < 0.75) {
+          // quoteSection.style.opacity = "1";
+          quoteSection.style.setProperty("--progress", "1");
+        }
+        // Fade out (0.75 → 1)
+        else {
+          const fadeOut = (1 - progress) / 0.25; // 1 → 0
+          // quoteSection.style.opacity = String(fadeOut);
+          quoteSection.style.setProperty("--progress", String(fadeOut));
+        }
         // quoteSection.style.opacity = String(progress * 10);
       },
     },
@@ -257,5 +257,68 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     transform: "translateY(-2rem)",
     opacity: 1,
+  });
+
+  const driverSection = document.querySelector(".drivers") as HTMLElement;
+  const driverRows = document.querySelectorAll(".drivers-list-row");
+
+  driverRows.forEach((row, index) => {
+    const zValue = -index * 200;
+
+    gsap.set(row, {
+      zIndex: driverRows.length - index,
+      xPercent: -50,
+      yPercent: -50,
+      z: -200,
+      // opacity: 0
+    });
+
+    // gsap.to(row, {
+    //   opacity: 1,
+    //   scrollTrigger: {
+    //     trigger: ".drivers",
+    //     start: () => `top+=${index * driverSection.offsetHeight / driverRows.length} top`,
+    //     end: () => `top+=${(index + 1) * driverSection.offsetHeight / driverRows.length} top`,
+    //     scrub: true,
+    //   }
+    // });
+
+    let rowTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".drivers",
+        // start: () => `top top`,
+        start: () =>
+          `top+=${
+            (index * driverSection.offsetHeight) / driverRows.length
+          } top`,
+        end: () =>
+          `top+=${
+            ((index + 1) * driverSection.offsetHeight) / driverRows.length
+          } top`,
+        scrub: true,
+      },
+    });
+    rowTimeline.to(row, {
+      // opacity: 0,
+      z: 400,
+    });
+    rowTimeline.to(
+      row,
+      {
+        opacity: 0,
+        // z: 0,
+      },
+      "-=0.4"
+    );
+  });
+
+  gsap.to(".drivers-list", {
+    scrollTrigger: {
+      trigger: ".drivers",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true,
+    },
+    backgroundSize: "100%",
   });
 });
