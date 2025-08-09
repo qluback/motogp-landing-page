@@ -330,64 +330,64 @@ document.addEventListener("DOMContentLoaded", function () {
   //   backgroundSize: "100%",
   // });
 
-  const videoOutro = document.querySelector(
-    ".outro-background-video"
-  ) as HTMLVideoElement;
+  // const videoOutro = document.querySelector(
+  //   ".outro-background-video"
+  // ) as HTMLVideoElement;
 
-  if (videoOutro) {
-    // Check if metadata is already loaded
-    ScrollTrigger.create({
-      trigger: ".outro",
-      pin: ".outro-background",
-      start: "top top",
-      endTrigger: "section.outro",
-      end: "bottom bottom",
-      scrub: 0.1,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        videoOutro.currentTime = progress * 11;
-      },
-    });
-  }
+  // if (videoOutro) {
+  //   // Check if metadata is already loaded
+  //   ScrollTrigger.create({
+  //     trigger: ".outro",
+  //     pin: ".outro-background",
+  //     start: "top top",
+  //     endTrigger: "section.outro",
+  //     end: "bottom bottom",
+  //     scrub: 0.1,
+  //     onUpdate: (self) => {
+  //       const progress = self.progress;
+  //       videoOutro.currentTime = progress * 11;
+  //     },
+  //   });
+  // }
 
-  // gsap.to(".outro-background-blur", {
+  // // gsap.to(".outro-background-blur", {
+  // //   scrollTrigger: {
+  // //     trigger: ".outro",
+  // //     // start: () => `${window.innerHeight * 2}px top`,
+  // //     // end: () => `${window.innerHeight * 3}px`,
+  // //     start: "top top",
+  // //     endTrigger: ".outro",
+  // //     end: "top+=500px top",
+  // //     scrub: true,
+  // //   },
+  // //   opacity: 0,
+  // //   backdropFilter: "blur(0px)",
+  // //   webkitBackdropFilter: "blur(0px)",
+  // // });
+
+  // // gsap.to(".outro-background-fadeLeft", {
+  // //   scrollTrigger: {
+  // //     trigger: ".outro-content",
+  // //     start: "top bottom", // start when .outro-content hits bottom of viewport
+  // //     endTrigger: ".outro-content",
+  // //     end: "top top", // end when it reaches top of viewport
+  // //     scrub: true,
+  // //   },
+  // //   backgroundSize: "200% 100%", // animate width from 0% → 100%
+  // //   ease: "power2.in",
+  // // });
+
+  // gsap.to(".outro-content", {
   //   scrollTrigger: {
   //     trigger: ".outro",
   //     // start: () => `${window.innerHeight * 2}px top`,
   //     // end: () => `${window.innerHeight * 3}px`,
-  //     start: "top top",
-  //     endTrigger: ".outro",
-  //     end: "top+=500px top",
+  //     start: () => `top+=${window.innerHeight * 9}px top`,
+  //     // endTrigger: ".outro-content-right",
+  //     // end: "bottom top",
   //     scrub: true,
+  //     markers: true
   //   },
-  //   opacity: 0,
-  //   backdropFilter: "blur(0px)",
-  //   webkitBackdropFilter: "blur(0px)",
+  //   display: "grid",
   // });
-
-  // gsap.to(".outro-background-fadeLeft", {
-  //   scrollTrigger: {
-  //     trigger: ".outro-content",
-  //     start: "top bottom", // start when .outro-content hits bottom of viewport
-  //     endTrigger: ".outro-content",
-  //     end: "top top", // end when it reaches top of viewport
-  //     scrub: true,
-  //   },
-  //   backgroundSize: "200% 100%", // animate width from 0% → 100%
-  //   ease: "power2.in",
-  // });
-
-  gsap.to(".outro-content", {
-    scrollTrigger: {
-      trigger: ".outro",
-      // start: () => `${window.innerHeight * 2}px top`,
-      // end: () => `${window.innerHeight * 3}px`,
-      start: () => `top+=${window.innerHeight * 9}px top`,
-      // endTrigger: ".outro-content-right",
-      // end: "bottom top",
-      scrub: true,
-      markers: true
-    },
-    display: "grid",
-  });
 });

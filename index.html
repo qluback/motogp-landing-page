@@ -4,16 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>MotoGP - New season launch</title>
   </head>
   <body>
+    <header class="header">
+      <img src="./src/assets/img/logo-short.svg" alt="" class="header-logo">
+      <span>=</span>
+    </header>
     <section class="hero">
       <div class="hero-banner">
         <div class="hero-banner-img"></div>
       </div>
-      <!-- <div class="hero-mask">
-        <div class="hero-mask-content"></div>
-      </div> -->
       <div class="hero-title">
         <div class="hero-title-inner">
           <div class="hero-title-mask"></div>
@@ -24,7 +25,6 @@
       </div>
     </section>
     <section class="intro">
-      <!-- <img src="./src/assets/img/martin1.png" alt=""> -->
       <div class="intro-background">
         <video
           src="./src/assets/video/lusail-encoded.mp4"
@@ -64,9 +64,6 @@
           »
         </p>
       </div>
-      <!-- <div class="quote-content">
-        <p class="quote-content-text">« Quand j’étais enfant, j’ai toujours rêvé d’être champion de MotoGP. »</p>
-      </div> -->
     </section>
     <section class="drivers">
       <div class="drivers-list">
@@ -161,56 +158,24 @@
             <img src="./src/assets/img/drivers/j-mir.webp" alt="" />
             <span>Joan<br />Mir</span>
           </div>
-          <div class="drivers-list-row-item aprilia">
-            <img src="./src/assets/img/drivers/j-martin.webp" alt="" />
-            <span>Jorge<br />Martin</span>
-          </div>
           <div class="drivers-list-row-item pramac">
             <img src="./src/assets/img/drivers/m-oliveira.webp" alt="" />
             <span>Miguel<br />Oliveira</span>
           </div>
-        </div>
-        <div class="drivers-list-row">
           <div class="drivers-list-row-item lcr-idemitsu">
             <img src="./src/assets/img/drivers/s-chantra.webp" alt="" />
             <span>Somkiat<br />Chantra</span>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="outro">
-      <!-- <img src="./src/assets/img/martin1.png" alt=""> -->
-      <div class="outro-background">
-        <video
-          src="./src/assets/video/aragon.mp4"
-          muted
-          playsinline
-          preload="auto"
-          class="outro-background-video"
-        ></video>
-        <div class="outro-background-blur"></div>
-        <div class="outro-background-fadeLeft"></div>
-      </div>
-      <div class="outro-content">
-        <div class="outro-content-left">
-          <h1>The 2025 MotoGP season is here</h1>
-          <p class="outro-content-left-subtitle">
-            Engines are roaring, legends are returning, and a new generation of
-            hungry riders is ready to fight for glory.
-          </p>
-          <p class="outro-content-left-text">
-            Speed, strategy, and impossible overtakes — get ready for a year of
-            pure adrenaline on the world’s most iconic tracks. The championship
-            is tighter than ever… <br />Who will conquer the asphalt in 2025 ?
-          </p>
-          <img src="./src/assets/img/3.jpg" alt="" />
-        </div>
-        <div class="outro-content-right">
-          <img src="./src/assets/img/1.jpg" alt="" />
-          <img src="./src/assets/img/2.jpg" alt="" />
+        <div class="drivers-list-row">
+          <div class="drivers-list-row-item aprilia">
+            <img src="./src/assets/img/drivers/j-martin.webp" alt="" />
+            <span>Jorge<br />Martin</span>
+          </div>
         </div>
       </div>
     </section>
+    
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
