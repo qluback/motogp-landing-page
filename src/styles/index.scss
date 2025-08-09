@@ -32,16 +32,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-          padding: 3rem 4rem;
+  padding: 3rem 4rem;
 
   &-logo {
-        height: 3rem;
+    height: 3rem;
   }
 
-   span {
+  span {
     font-size: 6rem;
     cursor: pointer;
-   }
+  }
 }
 
 h1 {
@@ -78,10 +78,10 @@ p {
 
     @keyframes hero-fadeIn {
       0% {
-       transform: scale(1.3);
+        transform: scale(1.3);
       }
       100% {
-       transform: scale(1.2);
+        transform: scale(1.2);
       }
     }
   }
@@ -330,179 +330,240 @@ p {
   }
 }
 
-.drivers {
-  height: 900vh;
+// .drivers {
+//   height: 900vh;
 
-  &-banner {
+//   &-banner {
+//     position: sticky;
+//     top: 0;
+//     width: 100%;
+//     height: 100vh;
+//     overflow: hidden;
+//     z-index: 1;
+
+//     &-img {
+//       background-image: url("../assets/img/mugello.jpg");
+//       background-repeat: no-repeat;
+//       background-size: cover;
+//       background-position: center;
+//       height: 100%;
+//       transform: scale(1.1);
+//     }
+//     &-blur {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       right: 0;
+//       bottom: 0;
+//       backdrop-filter: blur(10px);
+//       /* Optional: add a tint or fade */
+//       background: rgba(0, 0, 0, 0.7);
+//       // background: black;
+//       // opacity: 1;
+//       pointer-events: none;
+//     }
+//   }
+
+//   &-list {
+//     position: sticky;
+//     top: 0;
+//     width: 100%;
+//     height: 100vh;
+//     perspective: 1000px;
+//     padding: 7.5rem;
+//     z-index: 2;
+//     background-image: url("../assets/img/mugello.jpg");
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: center;
+//     // transform: scale(1.1);
+
+//     &-blur {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       right: 0;
+//       bottom: 0;
+//       backdrop-filter: blur(10px);
+//       /* Optional: add a tint or fade */
+//       background: rgba(0, 0, 0, 0.7);
+//       // background: black;
+//       // opacity: 1;
+//       pointer-events: none;
+//     }
+
+//     h2 {
+//       position: relative;
+//       font-size: $text-xl;
+//       font-family: $font-display;
+//       text-align: center;
+//       color: white;
+//       z-index: 2;
+//     }
+
+//     &-row {
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       transform-style: preserve-3d;
+//       transform-origin: center center;
+//       // width: 100%;
+//       // margin: auto;
+//       display: flex;
+//       justify-content: center;
+//       gap: 10rem;
+//       // transform: translate(-50%, -50%) translateZ(0px); /* default center + no depth */
+//       // transition: transform 0.5s ease;
+
+//       &-item {
+//         position: relative;
+//         width: 26.25rem;
+//         aspect-ratio: 2 / 3;
+//         display: flex;
+//         overflow: hidden;
+//         border-radius: 40px;
+//         border: 0 solid transparent;
+//         transition: border-width 0.6s ease, border-color 0.3s ease 0.3s;
+
+//         &:hover {
+//           border-width: 0.5vw;
+//           border-color: black;
+//           transition: border-width 0.6s ease, border-color 0.3s ease;
+
+//           &.ducati {
+//             border-color: #d10000;
+//           }
+//           &.gresini {
+//             border-color: #b8c9f6;
+//           }
+//           &.aprilia {
+//             border-color: #4b247d;
+//           }
+//           &.vr46 {
+//             border-color: #daff0d;
+//           }
+//           &.ktm {
+//             border-color: #fd5a27;
+//           }
+//           &.lcr-castrol {
+//             border-color: #08a25e;
+//           }
+//           &.yamaha {
+//             border-color: #212449;
+//           }
+//           &.tech3 {
+//             border-color: #d24702;
+//           }
+//           &.trackhouse {
+//             border-color: #0b6eb7;
+//           }
+//           &.pramac {
+//             border-color: #7e47b4;
+//           }
+//           &.honda {
+//             border-color: #ed0000;
+//           }
+//           &.lcr-idemitsu {
+//             border-color: #d81436;
+//           }
+
+//           span {
+//             opacity: 1;
+//           }
+
+//           img {
+//             transform: scale(1.02);
+//           }
+//         }
+
+//         img {
+//           width: 100%;
+//           box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16),
+//             0 4px 6px rgba(0, 0, 0, 0.45);
+//           border-radius: 40px;
+//           transition: transform 0.5s ease;
+//         }
+
+//         span {
+//           position: absolute;
+//           bottom: 0;
+//           left: 0;
+//           display: flex;
+//           align-items: flex-end;
+//           height: 100%;
+//           width: 100%;
+//           padding: 2rem;
+//           font-size: 3rem;
+//           background: linear-gradient(
+//             180deg,
+//             rgba(0, 0, 0, 0) 0%,
+//             rgba(0, 0, 0, 1) 100%
+//           );
+//           color: white;
+//           border-radius: 0px 0px 30px 30px;
+//           opacity: 0;
+//           transition: opacity 0.3s ease;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.drivers {
+  height: 300vh;
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
     position: sticky;
     top: 0;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
-    z-index: 1;
+    padding: 5rem;
+  }
 
-    &-img {
-      background-image: url("../assets/img/mugello.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      height: 100%;
-      transform: scale(1.1);
-    }
-    &-blur {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      backdrop-filter: blur(10px);
-      /* Optional: add a tint or fade */
-      background: rgba(0, 0, 0, 0.7);
-      // background: black;
-      // opacity: 1;
-      pointer-events: none;
-    }
+  h2 {
+    position: relative;
+    font-size: $text-xl;
+    font-family: $font-display;
+    text-align: center;
+    color: white;
+    z-index: 2;
   }
 
   &-list {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    perspective: 1000px;
-    padding: 7.5rem;
-    z-index: 2;
-    background-image: url("../assets/img/mugello.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    // transform: scale(1.1);
-
-    &-blur {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      backdrop-filter: blur(10px);
-      /* Optional: add a tint or fade */
-      background: rgba(0, 0, 0, 0.7);
-      // background: black;
-      // opacity: 1;
-      pointer-events: none;
-    }
-
-    h2 {
-      position: relative;
-      font-size: $text-xl;
-      font-family: $font-display;
-      text-align: center;
-      color: white;
-      z-index: 2;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    left: 100%;
+    height: 80%;
 
     &-row {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform-style: preserve-3d;
-      transform-origin: center center;
-      // width: 100%;
-      // margin: auto;
       display: flex;
-      justify-content: center;
-      gap: 10rem;
-      // transform: translate(-50%, -50%) translateZ(0px); /* default center + no depth */
-      // transition: transform 0.5s ease;
+      gap: 1rem;
+      position: relative;
+      height: calc(100% / 3);
+
+      &:nth-child(1) {
+      }
+      &:nth-child(2) {
+        left: 5rem;
+      }
+      &:nth-child(3) {
+        left: 10rem;
+      }
 
       &-item {
-        position: relative;
-        width: 26.25rem;
-        aspect-ratio: 2 / 3;
         display: flex;
-        overflow: hidden;
-        border-radius: 40px;
-        border: 0 solid transparent;
-        transition: border-width 0.6s ease, border-color 0.3s ease 0.3s;
-
-        &:hover {
-          border-width: 0.5vw;
-          border-color: black;
-          transition: border-width 0.6s ease, border-color 0.3s ease;
-
-          &.ducati {
-            border-color: #d10000;
-          }
-          &.gresini {
-            border-color: #b8c9f6;
-          }
-          &.aprilia {
-            border-color: #4b247d;
-          }
-          &.vr46 {
-            border-color: #daff0d;
-          }
-          &.ktm {
-            border-color: #fd5a27;
-          }
-          &.lcr-castrol {
-            border-color: #08a25e;
-          }
-          &.yamaha {
-            border-color: #212449;
-          }
-          &.tech3 {
-            border-color: #d24702;
-          }
-          &.trackhouse {
-            border-color: #0b6eb7;
-          }
-          &.pramac {
-            border-color: #7e47b4;
-          }
-          &.honda {
-            border-color: #ed0000;
-          }
-          &.lcr-idemitsu {
-            border-color: #d81436;
-          }
-
-          span {
-            opacity: 1;
-          }
-
-          img {
-            transform: scale(1.02);
-          }
-        }
+        position: relative;
 
         img {
-          width: 100%;
-          box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16),
-            0 4px 6px rgba(0, 0, 0, 0.45);
-          border-radius: 40px;
-          transition: transform 0.5s ease;
+          max-height: 100%; /* make images fit row height */
+          object-fit: contain;
         }
-
         span {
           position: absolute;
-          bottom: 0;
-          left: 0;
-          display: flex;
-          align-items: flex-end;
-          height: 100%;
-          width: 100%;
-          padding: 2rem;
-          font-size: 3rem;
-          background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 1) 100%
-          );
-          color: white;
-          border-radius: 0px 0px 30px 30px;
-          opacity: 0;
-          transition: opacity 0.3s ease;
         }
       }
     }

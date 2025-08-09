@@ -259,66 +259,78 @@ document.addEventListener("DOMContentLoaded", function () {
     opacity: 1,
   });
 
-  const driverSection = document.querySelector(".drivers") as HTMLElement;
-  const driverRows = document.querySelectorAll(".drivers-list-row");
-
-  driverRows.forEach((row, index) => {
-    const zValue = -index * 200;
-
-    gsap.set(row, {
-      zIndex: driverRows.length - index,
-      xPercent: -50,
-      yPercent: -50,
-      z: -200,
-      // opacity: 0
-    });
-
-    // gsap.to(row, {
-    //   opacity: 1,
-    //   scrollTrigger: {
-    //     trigger: ".drivers",
-    //     start: () => `top+=${index * driverSection.offsetHeight / driverRows.length} top`,
-    //     end: () => `top+=${(index + 1) * driverSection.offsetHeight / driverRows.length} top`,
-    //     scrub: true,
-    //   }
-    // });
-
-    let rowTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".drivers",
-        // start: () => `top top`,
-        start: () =>
-          `top+=${
-            (index * driverSection.offsetHeight) / driverRows.length
-          } top`,
-        end: () =>
-          `top+=${
-            ((index + 1) * driverSection.offsetHeight) / driverRows.length
-          } top`,
-        scrub: true,
-      },
-    });
-    rowTimeline.to(row, {
-      // opacity: 0,
-      z: 400,
-    });
-    rowTimeline.to(
-      row,
-      {
-        opacity: 0,
-        // z: 0,
-      },
-      "-=0.4"
-    );
-    rowTimeline.to(
-      row,
-      {
-        display: "none"
-        // z: 0,
-      },
-      "-=0.4"
-    );
+  gsap.to(".drivers-list", {
+    scrollTrigger: {
+      trigger: ".drivers",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true,
+      markers: true
+    },
+    // opacity: 0
+    left: 0
   });
+
+  // const driverSection = document.querySelector(".drivers") as HTMLElement;
+  // const driverRows = document.querySelectorAll(".drivers-list-row");
+
+  // driverRows.forEach((row, index) => {
+  //   const zValue = -index * 200;
+
+  //   gsap.set(row, {
+  //     zIndex: driverRows.length - index,
+  //     xPercent: -50,
+  //     yPercent: -50,
+  //     z: -200,
+  //     // opacity: 0
+  //   });
+
+  //   // gsap.to(row, {
+  //   //   opacity: 1,
+  //   //   scrollTrigger: {
+  //   //     trigger: ".drivers",
+  //   //     start: () => `top+=${index * driverSection.offsetHeight / driverRows.length} top`,
+  //   //     end: () => `top+=${(index + 1) * driverSection.offsetHeight / driverRows.length} top`,
+  //   //     scrub: true,
+  //   //   }
+  //   // });
+
+  //   let rowTimeline = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".drivers",
+  //       // start: () => `top top`,
+  //       start: () =>
+  //         `top+=${
+  //           (index * driverSection.offsetHeight) / driverRows.length
+  //         } top`,
+  //       end: () =>
+  //         `top+=${
+  //           ((index + 1) * driverSection.offsetHeight) / driverRows.length
+  //         } top`,
+  //       scrub: true,
+  //     },
+  //   });
+  //   rowTimeline.to(row, {
+  //     // opacity: 0,
+  //     z: 400,
+  //   });
+  //   rowTimeline.to(
+  //     row,
+  //     {
+  //       opacity: 0,
+  //       // z: 0,
+  //     },
+  //     "-=0.4"
+  //   );
+  //   rowTimeline.to(
+  //     row,
+  //     {
+  //       display: "none"
+  //       // z: 0,
+  //     },
+  //     "-=0.4"
+  //   );
+  // });
 
   // gsap.to(".drivers-list", {
   //   scrollTrigger: {
