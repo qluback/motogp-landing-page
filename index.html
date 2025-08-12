@@ -5,13 +5,30 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MotoGP - New season launch</title>
+    <style>
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background-color: black;
+        z-index: 999;
+        transition: opacity 0.3s ease;
+      }
+      #preloader.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
   </head>
   <body>
+    <div id="preloader"></div>
     <header class="header">
       <img src="./src/assets/img/logo-short.svg" alt="" class="header-logo" />
       <span>=</span>
     </header>
     <section class="hero">
+      <div class="hero-logo">
+        <img src="./src/assets/img/logo-white-bg.svg" alt="">
+      </div>
       <div class="hero-banner">
         <div class="hero-banner-img"></div>
       </div>
@@ -98,9 +115,9 @@
               <img src="./src/assets/img/drivers/j-mir.webp" alt="" />
               <span>Joan<br />Mir</span>
             </div>
-            <div class="drivers-list-row-item aprilia">
-              <img src="./src/assets/img/drivers/j-martin.webp" alt="" />
-              <span>Jorge<br />Martin</span>
+            <div class="drivers-list-row-item vr46">
+              <img src="./src/assets/img/drivers/f-morbidelli.webp" alt="" />
+              <span>Franco<br />Morbidelli</span>
             </div>
           </div>
           <div class="drivers-list-row">
@@ -141,9 +158,9 @@
               <img src="./src/assets/img/drivers/f-bagnaia.webp" alt="" />
               <span>Fancesco<br />Bagnaia </span>
             </div>
-            <div class="drivers-list-row-item vr46">
-              <img src="./src/assets/img/drivers/f-morbidelli.webp" alt="" />
-              <span>Franco<br />Morbidelli</span>
+            <div class="drivers-list-row-item aprilia">
+              <img src="./src/assets/img/drivers/j-martin.webp" alt="" />
+              <span>Jorge<br />Martin</span>
             </div>
             <div class="drivers-list-row-item yamaha">
               <img src="./src/assets/img/drivers/f-quartararo.webp" alt="" />

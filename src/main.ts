@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis();
+lenis.stop();
 
 function raf(time: number) {
   lenis.raf(time);
@@ -24,16 +25,46 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0);
 
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    preloader.classList.add("hidden");
+    setTimeout(() => preloader.remove(), 500);
+  }
+
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+});
+
 document.addEventListener("DOMContentLoaded", function () {
-  gsap.to(".hero-banner-img", {
-    scrollTrigger: {
-      trigger: ".hero",
-      start: "top top",
-      end: () => `${window.innerHeight}px`,
-      scrub: true,
-    },
-    scale: 1,
-  });
+  setTimeout(() => {
+    const heroBannerImg = document.querySelector(
+      ".hero-banner-img"
+    ) as HTMLElement;
+    if (!heroBannerImg) return;
+
+    // Step 1: Trigger CSS zoom-out
+    heroBannerImg.classList.add("zoomed-out");
+
+    // Step 2: After the CSS animation ends, clear transition and start GSAP
+    setTimeout(() => {
+      heroBannerImg.style.transition = "unset";
+      lenis.start();
+
+      gsap.to(heroBannerImg, {
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: () => `${window.innerHeight}px`,
+          scrub: true,
+        },
+        scale: 1,
+        overwrite: true, // ensures GSAP overwrites previous transforms
+      });
+    }, 2000); // matches your CSS transition duration
+  }, 100);
 
   ScrollTrigger.create({
     trigger: ".hero",
@@ -41,20 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     start: "top top",
     end: "bottom bottom",
     scrub: true, // optional: scrub helps keep things in sync
-    markers: true,
-    // onUpdate: (self) => {
-    //   console.log(self.progress);
-    // }
   });
-  // gsap.to(".hero-title", {
-  //   scrollTrigger: {
-  //     trigger: ".hero",
-  //     start: "top top",
-  //     end: "+=700vh",
-  //     scrub: true,
-  //   },
-  //   backgroundColor: "black",
-  // });
 
   gsap.to(".hero-title-mask", {
     scrollTrigger: {
@@ -259,17 +277,15 @@ document.addEventListener("DOMContentLoaded", function () {
     opacity: 1,
   });
 
-  gsap.to(".drivers-list", {
-    scrollTrigger: {
-      trigger: ".drivers",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true,
-      markers: true
-    },
-    // opacity: 0
-    left: 0
-  });
+gsap.to(".drivers-list", {
+  scrollTrigger: {
+    trigger: ".drivers",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+  },
+  left: "-100%"
+});
 
   // const driverSection = document.querySelector(".drivers") as HTMLElement;
   // const driverRows = document.querySelectorAll(".drivers-list-row");
@@ -398,7 +414,6 @@ document.addEventListener("DOMContentLoaded", function () {
   //     // endTrigger: ".outro-content-right",
   //     // end: "bottom top",
   //     scrub: true,
-  //     markers: true
   //   },
   //   display: "grid",
   // });
